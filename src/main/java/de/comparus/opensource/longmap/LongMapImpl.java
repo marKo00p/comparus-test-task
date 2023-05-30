@@ -46,8 +46,9 @@ public class LongMapImpl<V> implements LongMap<V> {
                     .filter(n -> n.key == key)
                     .findFirst();
             if (existingNode.isPresent()) {
+                V prevValue = existingNode.get().getValue();
                 existingNode.get().value = value;
-                return value;
+                return prevValue;
             } else {
                 Optional<Node<V>> optionalLastNode = Stream.iterate(node, Objects::nonNull, n -> n.next)
                         .reduce((a, b) -> b);
