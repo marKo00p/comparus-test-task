@@ -69,6 +69,11 @@ private LongMapImpl<String> longMap = new LongMapImpl<>();
 
         assertEquals(32, table.length);
     }
+    @Test
+    @DisplayName("Add new value with the exiting key")
+    void putAnotherValueWithTheExistingKey(){
+        assertEquals(longMap.put(333, "array"), "arrayList");
+    }
 
     @Test
     @DisplayName("An element with same key")
